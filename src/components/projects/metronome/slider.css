@@ -1,0 +1,124 @@
+:root {
+  --main-btn-color:rgb(248, 208, 192);
+  --main-display-active:rgb(255, 155, 116);
+  --secondary-shadow-color: #8b8b8b;
+  --box-shadow-val: 3px 3px 1px var(--secondary-shadow-color)
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: var(--main-btn-color);
+  border-radius: 16px;
+  /* border: 0.2px solid var(--secondary-shadow-color); */
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px var(--secondary-shadow-color), 0px 0px 1px var(--secondary-shadow-color);
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  background: var(--main-btn-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -11px;
+}
+input[type=range]::-webkit-slider-thumb:active {
+  box-shadow: 7px 7px 1px var(--secondary-shadow-color), 0px 0px 1px var(--secondary-shadow-color);
+  background: var(--main-display-active);
+  margin-top: -11px;
+  transform: scale(1.3)
+}
+
+input[type=range]::-webkit-slider-thumb:focus {
+  background-color: white;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+  box-shadow: 3px 3px 1px var(--secondary-shadow-color), 0px 0px 1px var(--secondary-shadow-color);
+  transform: scale(1.05)
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--main-btn-color);
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: var(--main-btn-color);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px var(--secondary-shadow-color), 0px 0px 1px var(--secondary-shadow-color);
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  background: var(--main-btn-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -11px;
+}
+
+input[type=range]::-moz-range-thumb:active {
+  box-shadow: 5px 5px 1px var(--secondary-shadow-color), 0px 0px 1px var(--secondary-shadow-color);
+  background: var(--main-display-active);
+  margin-top: -11px;
+  transform: scale(1.2)
+}
+
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: var(--main-btn-color);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: var(--main-btn-color);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px var(--secondary-shadow-color), 0px 0px 1px var(--secondary-shadow-color);
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  background: var(--main-btn-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -11px;
+}
+
+input[type=range]::-ms-thumb:active {
+  box-shadow: 5px 5px 1px var(--secondary-shadow-color), 0px 0px 1px var(--secondary-shadow-color);
+  background: var(--main-display-active);
+  margin-top: -11px;
+  transform: scale(1.2)
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: var(--main-btn-color);
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: var(--main-btn-color);
+}

@@ -1,0 +1,173 @@
+:root {
+  --main-btn-color:rgb(248, 208, 192);
+  --main-btn-focus:rgb(201, 142, 119);
+  --main-display-active:rgb(255, 155, 116);
+  --main-shadow-color: #8a8a8a;
+  --box-shadow-val: 3px 3px 1px var(--main-shadow-color);
+  --box-shadow-opposite: inset 3px 3px 1px var(--main-shadow-color)
+
+}
+
+.global-container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content:space-around ;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.text-box, 
+.text-box p {
+  flex-basis: 40%;
+}
+
+.metro-box {
+  display: grid;
+}
+
+.bpm-display, 
+.bpm-display:focus {
+  text-align: center;
+  font-size: 2.5rem;
+  background-color: rgb(248, 208, 192);
+  border: lightgrey;
+  border-radius: 25px;
+  padding: 0.75rem;
+  transition: 100ms;
+  z-index: 10;
+  outline: none;
+  grid-column-start: span 2;
+}
+
+.bpm-display.flash {
+  transition: 100ms;
+  background-color: var(--main-display-active);
+  box-shadow: var(--box-shadow-opposite);
+}
+
+.metro-box {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.bpm-range {
+  grid-column-start: span 2;
+}
+
+
+.dd-header {
+  grid-column: span 2;
+  position: relative;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 5em;
+  padding: 1em 1.5em;
+  width: 100%;
+  outline: none;
+}
+
+.dd-list.hidden {
+  display: none;
+  transition: all 500ms;
+  animation: dropdown 500ms reverse;
+  
+}
+
+.dd-list {
+  transition: all 500ms;
+  animation: dropdown 500ms;
+  margin-bottom: 1em;
+}
+
+.dd-list:active {
+  animation: dropdown 500ms reverse;
+  transform-origin: top center;
+  transition: all 500ms
+}
+
+.sound-option {
+  margin: .5em;
+  padding: 1em;
+  height: 85%;
+  width: 75%;
+  border-radius: 26px;
+  transition-property: background-color, transform, box-shadow;
+  transition-duration: 150ms;
+  background-color: var(--main-btn-color)
+
+}
+.sound-option:hover {
+  box-sizing: border-box;
+  transform: scale(1.01);
+  box-shadow: var(--box-shadow-val);
+}
+.sound-option:active {
+  background-color: var(--main-btn-color);
+}
+
+.custom-arrow {
+  background: var(--main-btn-color);
+  display: block;
+  height: 100%;
+  width: 20%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top-right-radius: 26px;
+  border-bottom-right-radius: 26px;
+  pointer-events: none;
+}
+
+.custom-arrow::after {
+  content: '';
+  background-color: white;
+  
+}
+.custom-arrow::before {
+  content: '';
+  background-color: white;
+}
+
+.metro-btn {
+  background-color: rgb(248, 208, 192);
+  justify-self: center;
+  border: lightgrey;
+  margin: 0.2rem;
+  width: 7.5rem;
+  height: 3rem;
+  border-radius: 20px;
+  transition-duration: 250ms;
+  transition-property: background-color, transform, box-shadow;
+}
+.metro-btn:hover {
+  background-color: rgb(253, 154, 115);
+  transform: scale(1.02, 1.02);
+  box-shadow: var(--box-shadow-val);
+}
+
+.metro-btn:focus {
+  outline: none;
+}
+.metro-btn:active {
+  outline: none;
+  background-color: var(--main-btn-focus);
+  box-shadow: 0px 0px 3px rgb(175, 123, 101);
+}
+
+.metro-btn.tap {
+  border-radius: 40px !important;
+  height: 5rem;
+}
+
+@keyframes dropdown {
+  0% {
+    transform: translateX(200%);
+    opacity: 0%;
+    transform-origin: top center;
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0%);
+  }
+}
