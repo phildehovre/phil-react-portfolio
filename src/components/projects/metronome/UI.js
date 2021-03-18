@@ -55,7 +55,7 @@ return (
 
     </div>
     <div className="metro-box">
-      <div className="title" style={injectSpan}>
+      <div className="metro-title" >
         <h1 className="small-title">
           <i className="play icon"></i>
             METRONOME

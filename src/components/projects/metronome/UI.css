@@ -1,37 +1,43 @@
 :root {
-  --main-btn-color:rgb(248, 208, 192);
-  --main-btn-focus:rgb(201, 142, 119);
-  --main-display-active:rgb(255, 155, 116);
-  --main-shadow-color: #8a8a8a;
-  --box-shadow-val: 3px 3px 1px var(--main-shadow-color);
-  --box-shadow-opposite: inset 3px 3px 1px var(--main-shadow-color)
-
+  --btn-primary: rgb(248, 208, 192);
+  --btn-dark: rgb(201, 142, 119);
+  --btn-active: rgb(255, 155, 116);
+  --btn-shadow: #8a8a8a;
+  --box-shadow-val: 3px 3px 1px var(--btn-shadow);
+  --box-shadow-inset: inset 3px 3px 1px var(--btn-shadow);
 }
 
 .global-container {
   box-sizing: border-box;
   display: flex;
-  justify-content:space-around ;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: nowrap;
 }
 
-.text-box, 
+.text-box,
 .text-box p {
   flex-basis: 40%;
 }
 
-
 .metro-box {
-  margin-top: 5em;
   display: grid;
   justify-content: center;
   align-items: center;
   height: 50vh;
   grid-template-columns: 1fr 1fr 1fr;
+  border: 2px solid var(--btn-primary);
+  padding: 1.5em;
+  border-radius: 26px;
+  text-align: center;
 }
 
-.bpm-display, 
+.metro-title {
+  grid-column-start: span 3;
+  padding: 0 0 1.5em;
+}
+
+.bpm-display,
 .bpm-display:focus {
   text-align: center;
   font-size: 2.5rem;
@@ -48,8 +54,8 @@
 
 .bpm-display.flash {
   transition: 100ms;
-  background-color: var(--main-display-active);
-  box-shadow: var(--box-shadow-opposite);
+  background-color: var(--btn-active);
+  box-shadow: var(--box-shadow-inset);
 }
 
 .bpm-range {
@@ -58,6 +64,7 @@
 
 .dd-container {
   grid-column-start: span 3;
+  margin: 0.5em;
 }
 
 .dd-header {
@@ -65,7 +72,7 @@
   position: relative;
   border: 1px solid rgb(201, 201, 201);
   border-radius: 5em;
-  padding: 1em 1.5em;
+  padding: 1.5em 1.5em;
   width: 100%;
   outline: none;
   cursor: pointer;
@@ -89,18 +96,18 @@
   animation: dropdown 500ms;
   margin-bottom: 1em;
   position: absolute;
+  display: block;
 }
 
 .sound-option {
-  margin: .5em 3em .5em 1em;
+  margin: 0.5em 3em 0.5em 1em;
   padding: 1em;
   height: 85%;
   width: 75%;
   border-radius: 26px;
   transition-property: background-color, transform, box-shadow;
   transition-duration: 150ms;
-  background-color: var(--main-btn-color);
-
+  background-color: var(--btn-primary);
 }
 .sound-option:hover {
   box-sizing: border-box;
@@ -108,14 +115,14 @@
   box-shadow: var(--box-shadow-val);
 }
 .sound-option:active {
-  background-color: var(--main-display-active);
+  background-color: var(--btn-active);
 }
 .sound-option:focus {
   background-color: aqua;
 }
 
 .custom-arrow {
-  background: var(--main-btn-color);
+  background: var(--btn-primary);
   display: block;
   height: 100%;
   width: 20%;
@@ -124,18 +131,18 @@
   right: 0;
   border-top-right-radius: 26px;
   border-bottom-right-radius: 26px;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 .custom-arrow::after,
 .custom-arrow::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 0;
-  --size: .55em;
+  --size: 0.55em;
   left: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
 }
 
 .custom-arrow::before {
@@ -151,10 +158,13 @@
   top: 60%;
 }
 
+/* .custom-arrow:hover {
+  background-color: var(--btn-active);
+} */
 .custom-arrow:hover::after {
   border-top: var(--size) solid white;
 }
-.custom-arrow::before:hover {
+.custom-arrow:hover::before {
   border-bottom: var(--size) solid white;
 }
 
@@ -180,7 +190,7 @@
 }
 .metro-btn:active {
   outline: none;
-  background-color: var(--main-btn-focus);
+  background-color: var(--btn-dark);
   box-shadow: 0px 0px 3px rgb(175, 123, 101);
 }
 
@@ -188,8 +198,7 @@
   border-radius: 100px;
   height: 5rem;
   grid-column-start: span 3;
-  margin: 0 0 1.5em;
-  /* align-self: center */
+  /* margin-top: 0.5em; */
 }
 
 @keyframes dropdown {

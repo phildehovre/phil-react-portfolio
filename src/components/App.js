@@ -5,6 +5,7 @@ import Projects from './projects/Projects'
 import Homepage from './homepage/Homepage'
 import Header from './Header'
 import Misc from './Misc'
+import Metronome from './projects/metronome/Metronome'
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <Route path="/" exact component={Homepage}/>
       <Route path="/projects" exact component={Projects} />
       <Route path="/misc" exact component={Misc} />
+      <Route path="/projects/metronome" exact component={Metronome} />
     </Router>
   )
 }

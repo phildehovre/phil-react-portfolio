@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Router, Link } from 'react-router-dom'
 
 
 import lorem from './ressources/lorem'
@@ -10,6 +10,7 @@ const Homepage = () => {
 
   return (
     <>
+
       <header>
         <h1>Welcome</h1>
       </header>
@@ -17,12 +18,12 @@ const Homepage = () => {
       <div className="hp-text-box one">
         <h2>Who am I?</h2>
         <p>{lorem}</p>
-        <Link className="hp-link-button" to='' >What I used to do</Link>
+        <Link className="hp-link-btn" to='' >What I used to do</Link>
       </div>
       <div className="hp-text-box two">
         <h2>What do I do?</h2>
         <p>{lorem}</p>
-        <Link className="hp-link-button" to='/projects/' >Projects</Link>
+        <Link className="hp-link-btn" to='/projects/metronome' >Projects</Link>
       </div>
       <div className="hp-text-box three">
         <h2>What do I want to do?</h2>
