@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+.hp-text-container {
+  display: grid;
+  width: 80%;
+  margin: 5% 10%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.hp-text-box {
+  transition: transform 250ms;
+  padding: 1em;
+  border-radius: 1em;
+}
+.hp-text-box:hover {
+  transform: scale(1.1)
+}
+
+.hp-text-box.one {
+  background-color: rgb(252, 191, 167);
+}
+
+.hp-text-box.two {
+  background-color: rgb(245, 166, 135);
+}
+.hp-text-box.three {
+  background-color: rgb(252, 139, 94);
+
+}
+.hp-text-box.four {
+  display: none;
+  
+}

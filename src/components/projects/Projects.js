@@ -13,7 +13,7 @@ const Projects = () => {
           <ProjectsHeader />
         </div>
         <div className="twelve wide stretched column">
-          <div className="ui segment">
+          <div className="ui container">
             <Route path="/projects/metronome" component={Metronome}/>
           </div>
         </div>

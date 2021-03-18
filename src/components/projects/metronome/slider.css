@@ -9,6 +9,7 @@ input[type=range] {
   -webkit-appearance: none;
   margin: 18px 0;
   width: 100%;
+  grid-column-start: span 3;
 }
 input[type=range]:focus {
   outline: none;

@@ -47,7 +47,12 @@ return (
 
   <div className="global-container">
     <div className="text-box">
-    <LoremIpsum />
+      <h3>My metronome application</h3>
+      This simple metronome is my first completed project. It has all the functionality you would expect from a hand-held physical metronome, with a few notable additions.
+      The BPM or "beats per minute" display shows the selected tempo and flashes with every beat as a visual aid for situations where sounds cannot be emitted or heard.
+      The most interesting part of working out the mechanics of this functionality was the "Tap Tempo" button that allows the user to automatically calculate the tempo of a piece of music by clicking in rhythm with the audio they are listening to.
+      This is a very useful tool for musicians who need to quickly transcribe and reproduce the tempo of a particular piece.
+
     </div>
     <div className="metro-box">
       <div className="title" style={injectSpan}>
@@ -60,12 +65,6 @@ return (
           <div className={`bpm-display-bg ${!light && isPlaying ? `pulse`: ``}`}></div>
           <label value="tempo selection slider"></label>
           {renderRangeSelector()}
-          <label value="sound selection"></label>
-          <div>
-            <CustomDropdown className="custom-select"
-              handleSoundSelect={setSoundEffect}
-              soundEffect={soundEffect}
-            />
             <button className="metro-btn" onClick={() => setBpm(bpm - 1)} >
               <i className="angle double left icon"></i>
             </button>
@@ -75,11 +74,15 @@ return (
             <button className="metro-btn" onClick={() => setBpm(bpm + 1)} >
               <i className="angle double right icon"></i>
             </button>
-            </div>
             <br />
           <button className="metro-btn tap"  onClick={tapTempo}>
-            Tappity McTapFace
+            Tap
           </button>
+            <label value="sound selection"></label>
+            <CustomDropdown className="custom-select"
+              handleSoundSelect={setSoundEffect}
+              soundEffect={soundEffect}
+            />
     </div>
   </div>
  )

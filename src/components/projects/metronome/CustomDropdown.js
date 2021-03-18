@@ -5,6 +5,7 @@ export default class CustomDropdown extends Component {
     super(props)
     this.state = {
       showDropdown: false,
+      isDropdownClosing: false,
       soundEffects: ['sidestick', 'cowbell', 'woodblock'],
       selectedSoundEffect: this.props.soundEffect
     }
@@ -22,24 +23,36 @@ export default class CustomDropdown extends Component {
               >
               {`${effect[0].toUpperCase()}${effect.slice(1)}`}
               </option>
-      )
-    })
-    }
+          )
+        })
+      }
     return null
+  };
+
+  handleDropDownRetract = () => {
+    if (this.state.showDropdown) {
+      this.setState({isDropdownClosing: true})
+      setTimeout(() => {
+        this.setState({showDropdown: !this.state.showDropdown})
+        this.setState({isDropdownClosing: false})
+      }, 500);
+    } else {
+      this.setState({showDropdown: !this.state.showDropdown})
+    }
   }
 
   renderDropdown = () => {
     return (
-      <div className={`dd-container ${this.state.showDropdown? `active`: ``}`} onClick={() => this.setState({showDropdown: !this.state.showDropdown})}>
+      <div className={`dd-container ${this.state.showDropdown? `active`: ``}`} onClick={() => this.handleDropDownRetract()}>
         <div className="dd-header">{`${this.props.soundEffect[0].toUpperCase()}${this.props.soundEffect.slice(1)}`}
           <span className="custom-arrow"></span>
         </div>
-        <div className={`dd-list ${this.state.showDropdown? ``: `hidden`}`}>
+        <div className={`dd-list ${this.state.showDropdown? ``: `hidden`} ${this.state.isDropdownClosing? `closing`: ``}`}>
           {this.renderedSoundEffects()}
         </div>
       </div>
     )
-  }
+  };
 
 
   render() {
@@ -47,15 +60,4 @@ export default class CustomDropdown extends Component {
       this.renderDropdown()
     )
   }
-  
-  // render() {
-  //   return (
-  //     <div className="dd-container" onClick={() => this.setState({showDropdown: !this.state.showDropdown})}>
-  //       <div className="dd-header">{`${this.props.soundEffect[0].toUpperCase()}${this.props.soundEffect.slice(1)}`}
-  //         <span className="custom-arrow"></span>
-  //       </div>
-  //         {this.renderedSoundEffects()}
-  //     </div>
-  //   )
-  // }
 }

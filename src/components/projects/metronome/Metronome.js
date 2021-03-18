@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import useSound from 'use-sound';
-import Tempo from './UI';
-// import SongList from './components/SongList';
+
+import UserInterface from './UI';
+import './UI.css'
 import Sidestick from './ressources/Click.wav';
 import Cowbell from './ressources/Cowbell.mp3';
 import Woodblock from './ressources/Woodblock.mp3';
-import './UI.css'
+// import SongList from './components/SongList';
 
 
 const KEY = '93f2be180a4be75f06c1a7d2829e8bbc'
@@ -17,7 +18,6 @@ const Metronome = () => {
     const [tempoInterval, setTempoInterval] = useState(null)
     const [tapped, setTapped] = useState()
     const [light, setLight] = useState(undefined)
-    // const [soundEffect, setSoundEffect] = useState(Sidestick)
     const [soundEffect, setSoundEffect] = useState('sidestick')
     const [debouncedBpm, setDebouncedBpm] = useState(bpm)
     // const [songs, setSongs] = useState([])
@@ -116,11 +116,11 @@ const Metronome = () => {
     //     console.log(res.data)
     //   })()
     // }, [debouncedBpm])
-    
+
     return (
         <>
         <div className="interface">
-            <Tempo 
+            <UserInterface 
                 bpm={bpm} 
                 setBpm={setBpm} 
                 startClick={startClick} 
@@ -130,13 +130,7 @@ const Metronome = () => {
                 setSoundEffect={setSoundEffect}
                 soundEffect={soundEffect}
                 />
-        </div> <br />
-        {/* <div className="bottom">
-          ©Philippe De Hovre {new Date().getFullYear()}
-        </div> */}
-        {/* <div>
-            <SongList songs={songs}/>
-        </div> */}
+        </div> 
         </>
     )
 }
