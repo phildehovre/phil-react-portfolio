@@ -1,23 +1,56 @@
 :root {
-  --btn-primary: rgb(248, 208, 192);
+  /* --btn-primary: rgb(248, 208, 192); */
+  --btn-primary: #fa8072;
   --btn-dark: rgb(201, 142, 119);
-  --btn-active: rgb(255, 155, 116);
+  --btn-active: #ff9d92;
   --btn-shadow: #8a8a8a;
-  --box-shadow-val: 3px 3px 1px var(--btn-shadow);
+  --metro-shadow-val: 3px 3px 1px var(--btn-shadow);
   --box-shadow-inset: inset 3px 3px 1px var(--btn-shadow);
+}
+
+body {
+  height: 100vh;
+}
+
+.interface {
+  margin: 1.5em;
 }
 
 .global-container {
   box-sizing: border-box;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  flex-wrap: nowrap;
+  align-items: baseline;
+  flex-direction: row;
+  margin: 1.5em;
 }
 
 .text-box,
 .text-box p {
   flex-basis: 40%;
+  padding: 1.5em 0 0 0;
+  text-align: justify;
+}
+
+.metro-link-btn {
+  background-color: white;
+  color: black;
+  justify-self: center;
+  width: 7.5rem;
+  height: 3rem;
+  border: 1px solid var(--btn-primary);
+  border-radius: 20px;
+  transition-duration: 250ms;
+  transition-property: background-color, transform, box-shadow;
+  padding: 1em;
+  margin: 0;
+}
+.metro-link-btn:hover {
+  background-color: var(--btn-primary);
+  color: black;
+  transform: scale(1.02, 1.02);
+  box-shadow: var(--metro-shadow-val);
+  border: none;
 }
 
 .metro-box {
@@ -112,7 +145,7 @@
 .sound-option:hover {
   box-sizing: border-box;
   transform: scale(1.01);
-  box-shadow: var(--box-shadow-val);
+  box-shadow: var(--metro-shadow-val);
 }
 .sound-option:active {
   background-color: var(--btn-active);
@@ -158,9 +191,6 @@
   top: 60%;
 }
 
-/* .custom-arrow:hover {
-  background-color: var(--btn-active);
-} */
 .custom-arrow:hover::after {
   border-top: var(--size) solid white;
 }
@@ -169,7 +199,7 @@
 }
 
 .metro-btn {
-  background-color: rgb(248, 208, 192);
+  background-color: var(--btn-primary);
   justify-self: center;
   border: lightgrey;
   margin: 0.2rem;
@@ -180,9 +210,9 @@
   transition-property: background-color, transform, box-shadow;
 }
 .metro-btn:hover {
-  background-color: rgb(253, 154, 115);
+  background-color: var(--btn-active);
   transform: scale(1.02, 1.02);
-  box-shadow: var(--box-shadow-val);
+  box-shadow: var(--metro-shadow-val);
 }
 
 .metro-btn:focus {

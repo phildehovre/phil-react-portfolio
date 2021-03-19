@@ -9,7 +9,7 @@ import Woodblock from './ressources/Woodblock.mp3';
 // import SongList from './components/SongList';
 
 
-const KEY = '93f2be180a4be75f06c1a7d2829e8bbc'
+// const KEY = '93f2be180a4be75f06c1a7d2829e8bbc'
 
 const Metronome = () => {
 

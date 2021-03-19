@@ -1,8 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import CustomDropdown from './CustomDropdown'
 import './slider.css'
-import { LoremIpsum } from '../../../globalRessources'
 
 export default function Tempo({ 
   bpm, 
@@ -14,10 +14,6 @@ export default function Tempo({
   soundEffect, 
   setSoundEffect,
 }) {
-
-const injectSpan = {
-    gridColumnStart: 'span 2'
-}
 
 const renderInput = () => {
   return (
@@ -47,12 +43,16 @@ return (
 
   <div className="global-container">
     <div className="text-box">
-      <h3>My metronome application</h3>
-      This simple metronome is my first completed project. It has all the functionality you would expect from a hand-held physical metronome, with a few notable additions.
-      The BPM or "beats per minute" display shows the selected tempo and flashes with every beat as a visual aid for situations where sounds cannot be emitted or heard.
+      <h3>My metronome application<hr/></h3>
+      <p>
+      This simple metronome is my first completed project.It has all the functionality you would expect from a hand-held physical metronome, with a few notable additions.<br /><br />
+      The BPM or "beats per minute" display shows the selected tempo and flashes with every beat as a visual  aid for situations where sounds cannot be emitted or heard.<br /><br />
       The most interesting part of working out the mechanics of this functionality was the "Tap Tempo" button that allows the user to automatically calculate the tempo of a piece of music by clicking in rhythm with the audio they are listening to.
-      This is a very useful tool for musicians who need to quickly transcribe and reproduce the tempo of a particular piece.
-
+      This is a very useful tool for musicians who need to quickly transcribe and reproduce the tempo of a particular piece. <br /><br />
+      At the bottom, a dropdown menu allows for the user to choose different sound effects. I have extensive knowledge of Logic Pro X which allowed me to create these samples myself.
+      </p>
+      <br />
+      <Link className="metro-link-btn" to="/"> Back to the homepage</Link>
     </div>
     <div className="metro-box">
       <div className="metro-title" >

@@ -1,5 +1,5 @@
 :root {
-  --main-btn-color: rgb(248, 208, 192);
+  --main-btn-color: salmon;
   --main-display-active: rgb(255, 155, 116);
   --secondary-shadow-color: #8b8b8b;
   --box-shadow-val: 3px 3px 1px var(--secondary-shadow-color);
