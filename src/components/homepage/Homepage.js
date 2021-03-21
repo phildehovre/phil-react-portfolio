@@ -29,6 +29,7 @@ const Homepage = () => {
       <div className="hp-text-box three">
         <h2>What do I want to do?<hr /></h2>
         <p>{lorem}</p>
+        <Link className="hp-link-btn" to='/contact' >Contact me</Link>
       </div>
       <div className="hp-text-box four">
         <h2>What do I want to do?</h2>
@@ -37,7 +38,7 @@ const Homepage = () => {
     </div>
     <div className="hp-contact-container">
         <a target="_blank" rel="noreferrer" href="https://www.instagram.com/phildehovre/?hl=en" className="hp-contact-link">
-          <i className="icon instagram huge" ></i>
+          <i className="icon envelope square huge" ></i>
         </a>
         <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/phil-de-hovre-7913991b3/" className="hp-contact-link">
           <i className="icon linkedin huge" ></i>

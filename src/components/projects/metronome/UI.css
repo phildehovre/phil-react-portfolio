@@ -141,6 +141,7 @@ body {
   transition-property: background-color, transform, box-shadow;
   transition-duration: 150ms;
   background-color: var(--btn-primary);
+  cursor: pointer;
 }
 .sound-option:hover {
   box-sizing: border-box;
