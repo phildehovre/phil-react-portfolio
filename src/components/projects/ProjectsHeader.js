@@ -10,7 +10,7 @@ const handleLinkSelect = (id) => {
 }
 
 const destinations = {
-  metronome: "/projects/metronome",
+  metronome: "/projects/metronome2",
   home: "/projects"
 }
 

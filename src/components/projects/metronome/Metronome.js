@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import useSound from 'use-sound';
 
 import UserInterface from './UI';
@@ -19,7 +19,7 @@ const Metronome = () => {
     const [tapped, setTapped] = useState()
     const [light, setLight] = useState(undefined)
     const [soundEffect, setSoundEffect] = useState('sidestick')
-    const [debouncedBpm, setDebouncedBpm] = useState(bpm)
+    // const [debouncedBpm, setDebouncedBpm] = useState(bpm)
     // const [songs, setSongs] = useState([])
 
     const [cowbell] = useSound(Cowbell)
@@ -43,15 +43,15 @@ const Metronome = () => {
 
     // Tempo selection range limiter:
 
-    const checkBpm = () => {
-      if (bpm <= 40) {
-        setBpm(40)
-      } else if (bpm >= 220) {
-        setBpm(220)
-      }
-    }  
+    // const checkBpm = () => {
+    //   if (bpm <= 40) {
+    //     setBpm(40)
+    //   } else if (bpm >= 220) {
+    //     setBpm(220)
+    //   }
+    // }  
 
-    const playSound = () => {
+    const playSound = useCallback(() => {
       if (soundEffect === 'cowbell') {
         cowbell()
       } else if (soundEffect === 'woodblock') {
@@ -59,20 +59,33 @@ const Metronome = () => {
       } else {
         sidestick()
       }
-    }
+    }, [soundEffect, cowbell, woodblock, sidestick] )
         
     
     // Sound and Visual:
 
-    const trigger = (duration) => {
-      if (play) {
-        playSound()
-        setLight(!true)
-        setTimeout(() => {setLight(!false)}, duration/2)
-      } else {
-        return;
-      }
-    }
+    const trigger = useCallback( (duration) => {
+        if (play) {
+          playSound()
+          setLight(!true)
+          setTimeout(() => {setLight(!false)}, duration/2)
+        } else {
+          return;
+        }
+    }, [play, playSound])
+
+
+
+
+    // const trigger = (duration) => {
+    //   if (play) {
+    //     playSound()
+    //     setLight(!true)
+    //     setTimeout(() => {setLight(!false)}, duration/2)
+    //   } else {
+    //     return;
+    //   }
+    // }
     
     const startClick = () => {
       setPlay(!play)      
@@ -85,18 +98,22 @@ const Metronome = () => {
         trigger(tempoInterval);
       }, tempoInterval)
         return (() => {clearInterval(intervalId)})
-    }, [play, tempoInterval, soundEffect ])
+    }, [play, tempoInterval, soundEffect, trigger])
     
 
     useEffect(() => {
         setTempoInterval((60/bpm)*1000);
-        checkBpm();
-        const intervalId = setTimeout(() => {
-            setDebouncedBpm(bpm)
-            }, 1000);
-        return (() => {
-            (clearTimeout(intervalId))
-        })
+        if (bpm <= 40) {
+          setBpm(40)
+        } else if (bpm >= 220) {
+          setBpm(220)
+        }
+        // const intervalId = setTimeout(() => {
+        //     setDebouncedBpm(bpm)
+        //     }, 1000);
+        // return (() => {
+        //     (clearTimeout(intervalId))
+        // })
     }, [bpm])
         
 
