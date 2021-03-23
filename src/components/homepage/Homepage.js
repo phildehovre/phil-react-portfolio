@@ -13,7 +13,7 @@ const Homepage = () => {
   return (
     <>
       <header className="hp-title-container">
-        <h1 className="hp-title">Welcome</h1>
+        <h1 className="hp-title">Welcome, You!</h1>
       </header>
     <div className="hp-text-container">
       <div className="hp-text-box one">
