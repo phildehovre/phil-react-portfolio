@@ -1,25 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-
-import lorem from './ressources/lorem'
-import { whoAmI } from './content'
-import { whatDoIDo } from './content'
+import { whatDoIWantToDo, whoAmI, whatDoIDo } from './content'
 import './Homepage.css'
 
 const Homepage = () => {
 
 
   return (
-    <>
+    <div className="hp-global-container">
       <header className="hp-title-container">
-        <h1 className="hp-title">Welcome, You!</h1>
+        <h1 className="hp-title">Welcome</h1>
       </header>
     <div className="hp-text-container">
       <div className="hp-text-box one">
         <h2>Who am I?<hr /></h2> 
         {whoAmI()}
-        <Link className="hp-link-btn" to='/media' >What I have been doing</Link>
+        <Link className="hp-link-btn" to='/media' >In the past</Link>
       </div>
       <div className="hp-text-box two">
         <h2>What do I do?<hr /></h2>
@@ -28,12 +25,8 @@ const Homepage = () => {
       </div>
       <div className="hp-text-box three">
         <h2>What do I want to do?<hr /></h2>
-        <p>{lorem}</p>
+        <p>{whatDoIWantToDo()}</p>
         <Link className="hp-link-btn" to='/contact' >Contact me</Link>
-      </div>
-      <div className="hp-text-box four">
-        <h2>What do I want to do?</h2>
-        <p>{lorem}</p>
       </div>
     </div>
     <div className="hp-contact-container">
@@ -50,7 +43,7 @@ const Homepage = () => {
           <i className="icon youtube huge" ></i>
         </a>
         </div>
-    </>
+    </div>
   )
 }
 

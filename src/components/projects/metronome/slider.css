@@ -1,16 +1,20 @@
 :root {
-  --main-btn-color: salmon;
+  --clr-cta: rgb(255, 123, 0);
+  --clr-cta-light: rgb(252, 173, 99);
+  --clr-cta-dark: rgb(185, 92, 4);
+  --clr-bg: rgb(71, 71, 71);
+  --main-btn-color: var(--clr-cta);
   --main-display-active: rgb(255, 155, 116);
-  --secondary-shadow-color: #8b8b8b;
+  --secondary-shadow-color: #333333;
   --box-shadow-val: 3px 3px 1px var(--secondary-shadow-color);
 }
 
 input[type="range"] {
   -webkit-appearance: none;
-  margin: 18px 0;
   width: 100%;
   grid-column-start: span 3;
   padding: 1.5em;
+  background-color: var(--clr-bg);
 }
 input[type="range"]:focus {
   outline: none;
@@ -19,7 +23,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
-  background: var(--main-btn-color);
+  background: var(--clr-cta);
   border-radius: 16px;
   /* border: 0.2px solid var(--secondary-shadow-color); */
 }
@@ -37,7 +41,7 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-thumb:active {
   box-shadow: 7px 7px 1px var(--secondary-shadow-color),
     0px 0px 1px var(--secondary-shadow-color);
-  background: var(--main-display-active);
+  background: var(--clr-cta-light);
   margin-top: -11px;
   transform: scale(1.3);
 }
