@@ -50,8 +50,6 @@ const renderRangeSelector = () => {
   )
 }
   
-// =================================================================================
-
 const renderedSoundEffects = () => {
   const soundEffects = ['sidestick', 'cowbell', 'woodblock']
   if (showDropdown) {
@@ -95,7 +93,6 @@ const renderDropdown = () => {
     </div>
   )
 };
-// =================================================================================
 
 return (
 
@@ -121,7 +118,6 @@ return (
               <button className="metro-btn up" onClick={() => setBpm(bpm + 1)} >
                 <i className="angle double right icon"></i>
               </button>
-              {/* <br /> */}
             <button className="metro-btn tap"  onClick={tapTempo}>
               Tap
             </button>
