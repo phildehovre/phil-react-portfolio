@@ -114,13 +114,13 @@ body {
   border: lightgrey;
   margin: 0.5rem;
   border-radius: 20px;
-  transition-duration: 250ms;
-  transition-property: background-color, transform, box-shadow;
   max-width: 7.5em;
   max-height: 3em;
   min-height: 3em;
+  /* transition-duration: 250ms;
+  transition-property: background-color, transform, box-shadow;
   -webkit-transition-duration: 250ms;
-  -webkit-transition-property: background-color, transform, box-shadow;
+  -webkit-transition-property: background-color, transform, box-shadow; */
 }
 
 .metro-btn:hover {
@@ -163,6 +163,7 @@ body {
   outline: none;
   cursor: pointer;
   appearance: none;
+  -webkit-appearance: none;
 }
 
 .dd-list.hidden {
