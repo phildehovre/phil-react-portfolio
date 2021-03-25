@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import CustomDropdown from './CustomDropdown'
+// import CustomDropdown from './CustomDropdown'
 import './slider.css'
 
 export default function Tempo({ 
