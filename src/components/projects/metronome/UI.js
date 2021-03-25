@@ -41,49 +41,54 @@ const renderRangeSelector = () => {
   
 return (
 
-  <div className="global-container">
-    <div className="metro-text-box">
+  <div className="global-ctn">
+    <div className="metro-box-container">
+      <div className="metro-box">
+        <div className="metro-title" >
+          <h1>
+            <i className="play icon"></i>
+              METRONOME
+          </h1>
+        </div>
+            {renderInput()}
+            <div className={`bpm-display-bg ${!light && isPlaying ? `pulse`: ``}`}></div>
+            <label value="tempo selection slider"></label>
+            {renderRangeSelector()}
+              <button className="metro-btn down" onClick={() => setBpm(bpm - 1)} >
+                <i className="angle double left icon"></i>
+              </button>
+              <button className="metro-btn play" onClick={startClick}>
+                <i className={`${isPlaying ? `pause`: `play`} icon`}></i>
+              </button>
+              <button className="metro-btn up" onClick={() => setBpm(bpm + 1)} >
+                <i className="angle double right icon"></i>
+              </button>
+              {/* <br /> */}
+            <button className="metro-btn tap"  onClick={tapTempo}>
+              Tap
+            </button>
+              <label value="sound selection"></label>
+              <CustomDropdown className="metro-custom-dd"
+                handleSoundSelect={setSoundEffect}
+                soundEffect={soundEffect}
+              />
+      </div><br />
+
+  </div>
+      <div className="metro-text-box">
       <h3>My metronome application<hr/></h3>
-      <p>
-      This simple metronome is my first completed project. It has all the functionality you would expect from a hand-held physical metronome, with a few notable additions.<br /><br />
-      The BPM or "beats per minute" display shows the selected tempo and flashes with every beat as a visual  aid for situations where sounds cannot be emitted or heard.<br /><br />
-      The most interesting part of working out the mechanics of this functionality was the "Tap Tempo" button that allows the user to automatically calculate the tempo of a piece of music by clicking in rhythm with the audio they are listening to.
-      This is a very useful tool for musicians who need to quickly transcribe and reproduce the tempo of a particular piece. <br /><br />
-      At the bottom, a dropdown menu allows for the user to choose different sound effects. I have extensive knowledge of Logic Pro X which allowed me to create these samples myself.
-      </p>
-      <Link className="metro-link-btn" to="/"> Back to the homepage</Link>
-      {/* <br /> */}
-    </div>
-    <div className="metro-box">
-      <div className="metro-title" >
-        <h1>
-          <i className="play icon"></i>
-            METRONOME
-        </h1>
+        <p>
+        This simple metronome is my first completed project. It has all the functionality you would expect from a hand-held physical metronome, with a few notable additions.<br /><br />
+        The BPM or "beats per minute" display shows the selected tempo and flashes with every beat as a visual  aid for situations where sounds cannot be emitted or heard.<br /><br />
+        The most interesting part of working out the mechanics of this functionality was the "Tap Tempo" button that allows the user to automatically calculate the tempo of a piece of music by clicking in rhythm with the audio they are listening to.
+        This is a very useful tool for musicians who need to quickly transcribe and reproduce the tempo of a particular piece. <br /><br />
+        At the bottom, a dropdown menu allows for the user to choose different sound effects. I have extensive knowledge of Logic Pro X which allowed me to create these samples myself.
+        </p>
+        {/* <br /> */}
+      <div className="metro-link-btn-ctn">
+        <Link className="metro-link-btn" to="/"> Back to the homepage</Link>
       </div>
-          {renderInput()}
-          <div className={`bpm-display-bg ${!light && isPlaying ? `pulse`: ``}`}></div>
-          <label value="tempo selection slider"></label>
-          {renderRangeSelector()}
-            <button className="metro-btn down" onClick={() => setBpm(bpm - 1)} >
-              <i className="angle double left icon"></i>
-            </button>
-            <button className="metro-btn play" onClick={startClick}>
-              <i className={`${isPlaying ? `pause`: `play`} icon`}></i>
-            </button>
-            <button className="metro-btn up" onClick={() => setBpm(bpm + 1)} >
-              <i className="angle double right icon"></i>
-            </button>
-            {/* <br /> */}
-          <button className="metro-btn tap"  onClick={tapTempo}>
-            Tap
-          </button>
-            <label value="sound selection"></label>
-            <CustomDropdown className="metro-custom-dd"
-              handleSoundSelect={setSoundEffect}
-              soundEffect={soundEffect}
-            />
-    </div><br />
+      </div>
   </div>
  )
 }
