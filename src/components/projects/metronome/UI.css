@@ -115,7 +115,7 @@ body {
   margin: 0.5rem;
   border-radius: 20px;
   max-width: 7.5em;
-  max-height: 3em;
+  /* max-height: 3em; */
   min-height: 3em;
   /* transition-duration: 250ms;
   transition-property: background-color, transform, box-shadow;
@@ -125,8 +125,8 @@ body {
 
 .metro-btn:hover {
   background-color: var(--clr-cta-light);
-  transform: scale(1.02, 1.02);
-  -webkit-transform: scale(1.02, 1.02);
+  /* transform: scale(1.02, 1.02); */
+  /* -webkit-transform: scale(1.02, 1.02); */
   box-shadow: var(--metro-shadow-val);
 }
 
@@ -266,10 +266,6 @@ body {
     justify-content: space-evenly;
     height: 100vh;
     padding: 5em;
-  }
-
-  .metro-btn {
-    opacity: 100%;
   }
 
   .metro-box-container {
