@@ -1,5 +1,4 @@
 :root {
-  /* --clr-cta: rgb(248, 208, 192); */
   --clr-cta: rgb(255, 123, 0);
   --clr-cta-light: rgb(252, 173, 99);
   --clr-cta-dark: rgb(185, 92, 4);
@@ -53,10 +52,11 @@ body {
 .metro-box {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 0.5em;
+  margin: 1.5em;
   align-items: center;
   justify-content: center;
-  min-width: 85%;
+  min-width: 250px;
+  max-width: 350px;
   border-top: 1px solid var(--clr-cta);
   border-left: 1px solid var(--clr-cta);
   border-radius: 26px;
@@ -119,11 +119,14 @@ body {
   max-width: 7.5em;
   max-height: 3em;
   min-height: 3em;
+  -webkit-transition-duration: 250ms;
+  -webkit-transition-property: background-color, transform, box-shadow;
 }
 
 .metro-btn:hover {
   background-color: var(--clr-cta-light);
   transform: scale(1.02, 1.02);
+  -webkit-transform: scale(1.02, 1.02);
   box-shadow: var(--metro-shadow-val);
 }
 

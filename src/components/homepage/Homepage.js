@@ -10,7 +10,7 @@ const Homepage = () => {
   return (
     <div className="hp-global-container">
       <header className="hp-title-container">
-        <h1 className="hp-title">Welcome</h1>
+        <h1 className="hp-title">PHIL DE HOVRE</h1>
       </header>
     <div className="hp-text-container">
       <div className="hp-text-box one">
@@ -30,7 +30,7 @@ const Homepage = () => {
       </div>
     </div>
     <div className="hp-contact-container">
-        <a target="_blank" rel="noreferrer" href="https://www.instagram.com/phildehovre/?hl=en" className="hp-contact-link">
+        <a target="_blank" rel="noreferrer" href="mailto:ph.dehovre@gmail.com" className="hp-contact-link">
           <i className="icon envelope square huge" ></i>
         </a>
         <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/phil-de-hovre-7913991b3/" className="hp-contact-link">

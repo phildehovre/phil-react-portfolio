@@ -21,19 +21,24 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5em;
+  padding: 0em 1.5em;
 }
 
 .hp-title-container {
-  padding: 1.5em;
   width: 100%;
-  height: 5em;
+  height: fit-content;
   text-align: center;
-  /* flex-wrap: nowrap; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0.5em;
+  border-left: 10px solid var(--clr-cta);
+  border-right: 10px solid var(--clr-cta);
+  margin-bottom: 3em;
+}
+
+.hp-title {
+  font-size: 50px;
+  color: rgb(175, 175, 175);
 }
 
 .hp-text-box {
@@ -80,5 +85,14 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1em;
+  }
+
+  .hp-title-container {
+    text-align: left;
+    border-right: none;
+  }
+
+  .hp-title {
+    font-size: 75px;
   }
 }

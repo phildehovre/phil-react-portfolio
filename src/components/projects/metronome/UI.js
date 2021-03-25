@@ -73,7 +73,6 @@ return (
                 soundEffect={soundEffect}
               />
       </div><br />
-
   </div>
       <div className="metro-text-box">
       <h3>My metronome application<hr/></h3>
