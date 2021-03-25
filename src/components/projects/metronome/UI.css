@@ -125,8 +125,6 @@ body {
 
 .metro-btn:hover {
   background-color: var(--clr-cta-light);
-  /* transform: scale(1.02, 1.02); */
-  /* -webkit-transform: scale(1.02, 1.02); */
   box-shadow: var(--metro-shadow-val);
 }
 
@@ -171,7 +169,7 @@ body {
 }
 
 .dd-list.closing {
-  transform: translateX(300%);
+  transform: translateX(-300%);
   opacity: 0%;
   transform-origin: top center;
   transition: all 500ms;

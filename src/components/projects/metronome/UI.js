@@ -69,7 +69,7 @@ const renderedSoundEffects = () => {
   return null
 };
 
-const handleDropDownRetract = () => {
+const handleDropdownRetract = () => {
   if (showDropdown) {
     setIsDropdownClosing(true)
     setTimeout(() => {
@@ -81,9 +81,16 @@ const handleDropDownRetract = () => {
   }
 };
 
+const handleTouch = () => showDropdown? setShowDropdown(true): setShowDropdown(false)
+
+
 const renderDropdown = () => {
   return (
-    <div className={`dd-container ${showDropdown? `active`: ``}`} onClick={() => handleDropDownRetract()}>
+    <div 
+      className={`dd-container ${showDropdown? `active`: ``}`} 
+      onClick={() => handleDropdownRetract()}
+      onTouchEnd={() => handleTouch()}
+      >
       <div className="dd-header">{`${soundEffect[0].toUpperCase()}${soundEffect.slice(1)}`}
         <span className="custom-arrow"></span>
       </div>
@@ -138,7 +145,7 @@ return (
         This simple metronome is my first completed project. It has all the functionality you would expect from a hand-held physical metronome, with a few notable additions.<br /><br />
         The BPM or "beats per minute" display shows the selected tempo and flashes with every beat as a visual  aid for situations where sounds cannot be emitted or heard.<br /><br />
         The most interesting part of working out the mechanics of this functionality was the "Tap Tempo" button that allows the user to automatically calculate the tempo of a piece of music by clicking in rhythm with the audio they are listening to.
-        This is a very useful tool for musicians who need to quickly transcribe and reproduce the tempo of a particular piece. <br /><br />
+        This is a very useful tool for musicians who need to quickly transcribe a piece a music and pinpoint the tempo of a particular piece. <br /><br />
         At the bottom, a dropdown menu allows for the user to choose different sound effects. I have extensive knowledge of Logic Pro X which allowed me to create these samples myself.
         </p>
         {/* <br /> */}
