@@ -91,7 +91,7 @@ body {
   border-radius: 25px;
   transition: 20ms;
   z-index: 10;
-  /* outline: none; */
+  outline: none;
   cursor: pointer;
   color: var(--clr-cta-light);
 }
@@ -143,6 +143,10 @@ body {
   grid-row-start: 5;
   grid-column-start: 2;
   align-self: center;
+}
+
+.metro-custom-dd {
+  grid-column-start: span 3;
 }
 
 .dd-container {
@@ -255,7 +259,7 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     height: 100vh;
-    padding: 5em;
+    padding: 3em;
   }
 
   .metro-box-container {

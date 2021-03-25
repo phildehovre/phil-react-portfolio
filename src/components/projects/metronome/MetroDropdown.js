@@ -7,7 +7,6 @@ export default class CustomDropdown extends Component {
       showDropdown: false,
       isDropdownClosing: false,
       soundEffects: ['sidestick', 'cowbell', 'woodblock'],
-      selectedSoundEffect: this.props.soundEffect
     }
   }
 

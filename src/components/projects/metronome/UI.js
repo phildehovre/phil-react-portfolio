@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import CustomDropdown from './CustomDropdown'
@@ -14,6 +14,17 @@ export default function Tempo({
   soundEffect, 
   setSoundEffect,
 }) {
+  
+  const [showDropdown, setShowDropdown] = useState(false)
+  const [isDropdownClosing, setIsDropdownClosing] = useState(false)
+
+  const onDismiss = () => {
+    setIsDropdownClosing(true)
+    setTimeout(() => {
+      setShowDropdown(false)
+      setIsDropdownClosing(false)
+    }, 500);
+  }
 
 const renderInput = () => {
   return (
@@ -39,12 +50,59 @@ const renderRangeSelector = () => {
   )
 }
   
+// =================================================================================
+
+const renderedSoundEffects = () => {
+  const soundEffects = ['sidestick', 'cowbell', 'woodblock']
+  if (showDropdown) {
+    return soundEffects.map(effect => {
+        return (
+            <option 
+              key={effect} 
+              className="sound-option" 
+              value={effect}
+              onClick={(e) => setSoundEffect(e.target.value)}
+            >
+            {`${effect[0].toUpperCase()}${effect.slice(1)}`}
+            </option>
+        )
+      })
+    };
+  return null
+};
+
+const handleDropDownRetract = () => {
+  if (showDropdown) {
+    setIsDropdownClosing(true)
+    setTimeout(() => {
+      setShowDropdown(!showDropdown)
+      setIsDropdownClosing(false)
+    }, 500);
+  } else {
+    setShowDropdown(!showDropdown)
+  }
+};
+
+const renderDropdown = () => {
+  return (
+    <div className={`dd-container ${showDropdown? `active`: ``}`} onClick={() => handleDropDownRetract()}>
+      <div className="dd-header">{`${soundEffect[0].toUpperCase()}${soundEffect.slice(1)}`}
+        <span className="custom-arrow"></span>
+      </div>
+      <div className={`dd-list ${showDropdown? ``: `hidden`} ${isDropdownClosing? `closing`: ``}`}>
+        {renderedSoundEffects()}
+      </div>
+    </div>
+  )
+};
+// =================================================================================
+
 return (
 
-  <div className="global-ctn">
-    <div className="metro-box-container" onClick={e => console.log(e)}>
+  <div className="global-ctn" onClick={() => onDismiss()}>
+    <div className="metro-box-container">
       <div className="metro-box">
-        <div className="metro-title" >
+        <div className="metro-title" onClick={startClick}>
           <h1>
             <i className="play icon"></i>
               METRONOME
@@ -68,10 +126,14 @@ return (
               Tap
             </button>
               <label value="sound selection"></label>
-              <CustomDropdown className="metro-custom-dd"
+              {/* <CustomDropdown className="metro-custom-dd"
                 handleSoundSelect={setSoundEffect}
                 soundEffect={soundEffect}
-              />
+                onDismiss={onDismiss}
+              /> */}
+              <div className="metro-custom-dd" onClick={e => e.stopPropagation()}>
+                {renderDropdown()}
+              </div>
       </div><br />
   </div>
       <div className="metro-text-box">
