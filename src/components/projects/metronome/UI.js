@@ -42,7 +42,7 @@ const renderRangeSelector = () => {
 return (
 
   <div className="global-ctn">
-    <div className="metro-box-container">
+    <div className="metro-box-container" onClick={e => console.log(e)}>
       <div className="metro-box">
         <div className="metro-title" >
           <h1>

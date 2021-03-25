@@ -25,7 +25,7 @@ const Homepage = () => {
       </div>
       <div className="hp-text-box three">
         <h2>What do I want to do?<hr /></h2>
-        <p>{whatDoIWantToDo()}</p>
+        {whatDoIWantToDo()}
         <Link className="hp-link-btn" to='/contact' >Contact me</Link>
       </div>
     </div>

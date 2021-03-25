@@ -115,12 +115,12 @@ body {
   margin: 0.5rem;
   border-radius: 20px;
   max-width: 7.5em;
-  /* max-height: 3em; */
+  max-height: 3em;
   min-height: 3em;
-  /* transition-duration: 250ms;
+  transition-duration: 250ms;
   transition-property: background-color, transform, box-shadow;
   -webkit-transition-duration: 250ms;
-  -webkit-transition-property: background-color, transform, box-shadow; */
+  -webkit-transition-property: background-color, transform, box-shadow;
 }
 
 .metro-btn:hover {
@@ -166,13 +166,6 @@ body {
   -webkit-appearance: none;
 }
 
-.dd-list.hidden {
-  display: none;
-  opacity: 0%;
-  transition: all 500ms;
-  transform: translateX(200%);
-}
-
 .dd-list.closing {
   transform: translateX(300%);
   opacity: 0%;
@@ -182,9 +175,7 @@ body {
 
 .dd-list {
   transition: all 500ms;
-  animation: dropdown 500ms;
   transform: translateX(0%);
-  opacity: 100%;
   margin-bottom: 1em;
   position: absolute;
   display: block;
@@ -198,21 +189,20 @@ body {
   border-radius: 26px;
   transition-property: background-color, transform, box-shadow;
   transition-duration: 150ms;
+  -webkit-transition-property: background-color, transform, box-shadow;
+  -webkit-transition-duration: 150ms;
   background-color: var(--clr-cta);
   cursor: pointer;
   color: black;
+  box-shadow: 5px 5px 2px black;
 }
+
 .sound-option:hover {
-  box-sizing: border-box;
-  transform: scale(1.01);
   box-shadow: var(--metro-shadow-val);
   background-color: var(--clr-cta-light);
 }
 .sound-option:active {
   background-color: var(--clr-cta-dark);
-}
-.sound-option:focus {
-  background-color: aqua;
 }
 
 .custom-arrow {

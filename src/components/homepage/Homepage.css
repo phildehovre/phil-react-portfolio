@@ -34,6 +34,8 @@ body {
   border-left: 10px solid var(--clr-cta);
   border-right: 10px solid var(--clr-cta);
   margin-bottom: 3em;
+  background-color: rgb(75, 75, 75);
+  padding: 0 0 1.5em 0;
 }
 
 .hp-title {
@@ -85,6 +87,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1em;
+    height: 70%;
   }
 
   .hp-title-container {
@@ -94,5 +97,11 @@ body {
 
   .hp-title {
     font-size: 75px;
+  }
+
+  .hp-text-box {
+    background-color: rgb(75, 75, 75);
+    padding: 1.5em;
+    height: 100%;
   }
 }
