@@ -8,7 +8,12 @@ export const youtube = axios.create({
     params: {
         part: 'snippet',
         type: 'video',
-        maxResults: 5,
+        maxResults: 10,
         key: KEY
     }
 });
+
+export const placeholder = axios.create({
+  baseURL: 'https://jsonplaceholder.typicode.com',
+
+})

@@ -1,35 +1,35 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { fetchVideos } from '../../../actions'
 
 class VideoList extends Component {
 
-  componentDidMount() {
-    this.props.fetchVideos()
-    console.log(this.props.videos)
-  }
-  
-  renderVideoList() {
-    if (this.props.videos > 1) {
-      // console.log(this.props.videos)
-      return this.props.videos[0].map(video => {
+    selectVideo = (id) => {
+      this.props.selectVideo(id)
+    }
+
+    renderVideoList() {
+      if (this.props.videos.length < 1) {
         return (
           <div>
-            {video.snippet.title}
+            <h1>Loading ...</h1>
+          </div>
+        )
+      }
+      return this.props.videos.map(video => {
+        return (
+          <div key={video.id.videoId} className="item" onClick={() => this.selectVideo(video.id.videoId)}>
+            <img alt={video.snippet.title} src={video.snippet.thumbnails.default.url} />
+            <h3>{video.snippet.title}</h3>
+            <p>{video.snippet.description}</p>
           </div>
         )
       })
-    } else {
-      return 'Loading...'
-
-    }
   }
   
   render() {
     return (
-      <div className="ui container">
-        <div className="ui relaxed divided list">
+      <div className="video-list-global">
+        <div className="video-list-ctn">
           {this.renderVideoList()}
         </div>
           <Link className="hp-link-btn" to="/">Back to the homepage</Link>
@@ -38,11 +38,4 @@ class VideoList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    videos: state.videos
-  }
-}
-
-
-export default connect(mapStateToProps, {fetchVideos: fetchVideos} )(VideoList)
+export default VideoList

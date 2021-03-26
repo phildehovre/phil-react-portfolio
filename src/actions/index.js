@@ -9,7 +9,6 @@ export const fetchVideos = () => async dispatch => {
       q: 'phil de hovre',
     },
   });
-  console.log(res.data.items)
   dispatch({
     type: FETCH_VIDEOS,
     payload: res.data.items

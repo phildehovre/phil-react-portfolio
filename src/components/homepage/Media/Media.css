@@ -1,0 +1,19 @@
+:root {
+  --clr-bg: rgb(71, 71, 71);
+  --clr-cta: rgb(255, 123, 0);
+  --btn-shadow: #8a8a8a;
+  --box-shadow-val: 1em 1em 1px var(--btn-shadow);
+  --box-shadow-inset: inset 3px 3px 1px var(--btn-shadow);
+}
+
+.selected-video-ctn {
+  border: 1px solid red;
+}
+
+.selected-video {
+  border: 1px solid red;
+}
+
+.selected-video-content {
+  border: 1px solid red;
+}

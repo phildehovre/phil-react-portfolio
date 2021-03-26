@@ -2,5 +2,5 @@ import { combineReducers } from 'redux'
 import { videoReducer } from './videoReducer'
 
 export default combineReducers({
-  videos: videoReducer
+  videos: videoReducer,
 })

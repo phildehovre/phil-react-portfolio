@@ -16,7 +16,8 @@ const Homepage = () => {
       <div className="hp-text-box one">
         <h2>Who am I?<hr /></h2> 
         {whoAmI()}
-        <Link className="hp-link-btn" to='/media' >In the past</Link>
+        {/* <Link className="hp-link-btn" to='/media' >In the past</Link> */}
+        <a className="hp-link-btn" href="https://www.youtube.com/user/de0vr" rel="noreferrer" target="_blank" >In the past</a>
       </div>
       <div className="hp-text-box two">
         <h2>What do I do?<hr /></h2>
