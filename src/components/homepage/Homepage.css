@@ -55,6 +55,10 @@ body {
   width: fit-content;
   text-align: center;
 }
+.hp-text-box p {
+  width: fit-content;
+  text-align: center;
+}
 
 .hp-link-btn {
   transition: all 250ms;
@@ -93,6 +97,7 @@ body {
   .hp-title-container {
     text-align: left;
     border-right: none;
+    letter-spacing: 1.5em;
   }
 
   .hp-title {

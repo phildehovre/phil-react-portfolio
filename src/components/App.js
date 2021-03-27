@@ -6,6 +6,7 @@ import Misc from './Misc'
 import Metronome from './projects/metronome/Metronome'
 import Media from './homepage/Media/Media'
 import ContactForm  from './homepage/ContactForm'
+import Playground from './Playground'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Route path="/projects/metronome2" exact component={Metronome} />
       <Route path="/media" exact component={Media} />
       <Route path="/contact" exact component={ContactForm} />
+      <Route path="/playground" exact component={Playground} />
     </Router>
   )
 }

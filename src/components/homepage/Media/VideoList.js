@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class VideoList extends Component {
+  state = {
+    onHoverId: null
+  }
 
-    selectVideo = (id) => {
-      this.props.selectVideo(id)
+  
+  selectVideo = (id) => {
+    this.props.selectVideo(id)
       console.log(id)
     }
 
@@ -17,17 +21,33 @@ class VideoList extends Component {
         )
       }
       return this.props.videos.map(video => {
+        console.log(video.snippet.thumbnails.default.url)
         return (
-          <div key={video.id.videoId} className="video-list-item-ctn" onClick={() => this.selectVideo(video.id.videoId)}>
-            <img alt={video.snippet.title} src={video.snippet.thumbnails.high.url} />
-            <div className="video-list-item-content">
-              <h3>{video.snippet.title}</h3>
-              <p>{video.snippet.description}</p>
+          <div key={video.id.videoId} className="video-list-item-ctn" style={{backgroundImage: `url(${video.snippet.thumbnails.medium.url})`}} 
+            onClick={() => this.selectVideo(video.id.videoId)}
+            onMouseEnter={() => {this.setState({onHoverId: video.id.videoId})}}
+            onMouseLeave={() => {this.setState({onHoverId: null})}}
+            >
+            {/* <div className="video-list-test"></div> */}
+            <div style={{display: 'flex'}}>
+              {/* <img alt={video.snippet.title} src={video.snippet.thumbnails.high.url} /> */}
+              {this.renderVideoDecription(video)}
             </div>
           </div>
         )
       })
-  }
+    }
+
+  renderVideoDecription = (video) => {
+    if (this.state.onHoverId === video.id.videoId) {
+      return (
+        <div className="video-list-item-content">
+          <h3>{video.snippet.title}</h3>
+          <p>{video.snippet.description}</p>
+      </div>
+      );
+    };
+  };
   
   render() {
     return (

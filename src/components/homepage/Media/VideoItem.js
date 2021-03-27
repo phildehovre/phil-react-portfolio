@@ -1,6 +1,9 @@
 import React from 'react'
 
 class VideoItem extends React.Component {
+  state = {
+    videoHoverId: null
+  }
 
 
   

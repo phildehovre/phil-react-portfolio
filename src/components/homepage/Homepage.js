@@ -10,7 +10,7 @@ const Homepage = () => {
   return (
     <div className="hp-global-container">
       <header className="hp-title-container">
-        <h1 className="hp-title">PHIL DE HOVRE</h1>
+        <h1 to="/" className="hp-title" >PHIL DE HOVRE</h1>
       </header>
     <div className="hp-text-container">
       <div className="hp-text-box one">
