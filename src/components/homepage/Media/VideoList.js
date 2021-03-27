@@ -5,6 +5,7 @@ class VideoList extends Component {
 
     selectVideo = (id) => {
       this.props.selectVideo(id)
+      console.log(id)
     }
 
     renderVideoList() {
@@ -17,10 +18,12 @@ class VideoList extends Component {
       }
       return this.props.videos.map(video => {
         return (
-          <div key={video.id.videoId} className="item" onClick={() => this.selectVideo(video.id.videoId)}>
-            <img alt={video.snippet.title} src={video.snippet.thumbnails.default.url} />
-            <h3>{video.snippet.title}</h3>
-            <p>{video.snippet.description}</p>
+          <div key={video.id.videoId} className="video-list-item-ctn" onClick={() => this.selectVideo(video.id.videoId)}>
+            <img alt={video.snippet.title} src={video.snippet.thumbnails.high.url} />
+            <div className="video-list-item-content">
+              <h3>{video.snippet.title}</h3>
+              <p>{video.snippet.description}</p>
+            </div>
           </div>
         )
       })

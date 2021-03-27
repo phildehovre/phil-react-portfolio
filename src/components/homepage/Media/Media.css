@@ -6,14 +6,37 @@
   --box-shadow-inset: inset 3px 3px 1px var(--btn-shadow);
 }
 
+.video-list-ctn {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.video-list-item-ctn {
+  padding: 1.5em;
+  display: flex;
+  flex-direction: row;
+}
+
+.video-list-item-ctn img {
+  width: 50%;
+  height: 50%;
+}
+
+.video-list-item-content {
+  background: none;
+}
+
 .selected-video-ctn {
-  border: 1px solid red;
+  background-color: none;
+  padding: 1.5em;
 }
 
 .selected-video {
-  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
 }
 
 .selected-video-content {
-  border: 1px solid red;
+  background: none;
 }

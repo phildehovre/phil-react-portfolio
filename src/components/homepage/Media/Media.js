@@ -10,20 +10,15 @@ import './Media.css'
 class Media extends Component {
 
   state = {
-    selectedVideo: null
+    selectedVideo: null,
   }
 
   componentDidMount() {
     this.props.fetchVideos()
-    // this.props.fetchVideo()
-
-    this.setState({selectedVideo: this.props.videos.find(video => video.id.videoId === 'D-MHHZoO3W0')})
-    this.selectVideo('D-MHHZoO3W0')
   }
 
-  selectVideo = async (id) => {
-    if (!this.props.videos) return 'loading ...'
-    const selected = await this.props.videos.find(video => video.id.videoId === id)
+  selectVideo = (clickedId) => {
+    const selected = this.props.videos.find(video => video.id.videoId === clickedId)
     this.setState({selectedVideo: selected})
   }
   
@@ -34,16 +29,19 @@ class Media extends Component {
           <h1 className="hp-title">PHIL DE HOVRE:MUSICIAN</h1>
         </header>
         <div>
-          <VideoItem selectedVideo={this.props.selectedVideo}/>
-          <VideoList videos={this.props.videos} selectVideo={this.selectVideo}/>
+          <VideoItem selectedVideo={this.state.selectedVideo}/>
+          <div className="video-list-global-ctn">
+            <VideoList videos={this.props.videos} selectVideo={this.selectVideo}/>
+
+          </div>
         </div>
       </>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log(state)
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps)
   return {
     videos: state.videos,
   }
