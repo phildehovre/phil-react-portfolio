@@ -39,7 +39,9 @@ class VideoList extends Component {
       })
     }
 
+
   renderVideoDecription = (video) => {
+    console.log(window)
     if (this.state.onHoverId === video.id.videoId) {
       return (
         <div className="video-list-item-content">
