@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+
 
 class VideoList extends Component {
   state = {
@@ -7,9 +7,13 @@ class VideoList extends Component {
   }
 
   
-  selectVideo = (id) => {
-    this.props.selectVideo(id)
-      console.log(id)
+  selectVideo = (video) => {
+    this.props.selectVideo(video)
+    }
+
+    handleOnVideoClick = (video) => {
+      this.selectVideo(video)
+      // history.push(`/video/${video.id.videoId}`)
     }
 
     renderVideoList() {
@@ -21,16 +25,13 @@ class VideoList extends Component {
         )
       }
       return this.props.videos.map(video => {
-        console.log(video.snippet.thumbnails.default.url)
         return (
           <div key={video.id.videoId} className="video-list-item-ctn" style={{backgroundImage: `url(${video.snippet.thumbnails.medium.url})`}} 
-            onClick={() => this.selectVideo(video.id.videoId)}
+            onClick={() => this.handleOnVideoClick(video)}
             onMouseEnter={() => {this.setState({onHoverId: video.id.videoId})}}
             onMouseLeave={() => {this.setState({onHoverId: null})}}
             >
-            {/* <div className="video-list-test"></div> */}
             <div style={{display: 'flex'}}>
-              {/* <img alt={video.snippet.title} src={video.snippet.thumbnails.high.url} /> */}
               {this.renderVideoDecription(video)}
             </div>
           </div>
@@ -55,7 +56,6 @@ class VideoList extends Component {
         <div className="video-list-ctn">
           {this.renderVideoList()}
         </div>
-          <Link className="hp-link-btn" to="/">Back to the homepage</Link>
       </div>
     )
   }

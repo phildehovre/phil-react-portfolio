@@ -1,5 +1,6 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Router, Route } from 'react-router-dom'
+import history from '../components/history'
 
 import Homepage from './homepage/Homepage'
 import Misc from './Misc'
@@ -10,7 +11,7 @@ import Playground from './Playground'
 
 export default function App() {
   return (
-    <Router>
+    <Router history={history}>
       <Route path="/" exact component={Homepage}/>
       <Route path="/misc" exact component={Misc} />
       <Route path="/projects/metronome2" exact component={Metronome} />

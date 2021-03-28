@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import VideoList from './VideoList'
 import VideoItem from './VideoItem'
@@ -17,8 +18,8 @@ class Media extends Component {
     this.props.fetchVideos()
   }
 
-  selectVideo = (clickedId) => {
-    const selected = this.props.videos.find(video => video.id.videoId === clickedId)
+  selectVideo = (clickedVideo) => {
+    const selected = this.props.videos.find(video => video.id.videoId === clickedVideo.id.videoId)
     this.setState({selectedVideo: selected})
   }
   
@@ -26,22 +27,20 @@ class Media extends Component {
     return (
       <>
         <header className="hp-title-container">
-          <h1 className="hp-title">PHIL DE HOVRE:MUSICIAN</h1>
+          <Link to="/">
+            <h1 className="hp-title">PHIL DE HOVRE:MUSICIAN</h1>
+          </Link>
         </header>
-        <div>
+        <div className="selected-video-ctn">
           <VideoItem selectedVideo={this.state.selectedVideo}/>
-          <div className="video-list-global-ctn">
-            <VideoList videos={this.props.videos} selectVideo={this.selectVideo}/>
-
-          </div>
         </div>
+          <VideoList videos={this.props.videos} selectVideo={this.selectVideo}/>
       </>
     )
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps)
+const mapStateToProps = (state) => {
   return {
     videos: state.videos,
   }

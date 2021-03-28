@@ -1,19 +1,17 @@
 import React from 'react'
 
+
+
 class VideoItem extends React.Component {
-  state = {
-    videoHoverId: null
-  }
-
-
   
   renderVideoItem = () => {
     if (!this.props.selectedVideo || this.props.selectedVideo === null) return;
+    console.log(this.props.selectedVideo)
     const videoSrc = `https://www.youtube.com/embed/${this.props.selectedVideo.id.videoId}`
     const { description, title } = this.props.selectedVideo.snippet
     return (
       <div className="selected-video">
-      <iframe width="560" height="315" src={videoSrc} title={title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" height="315" src={videoSrc} title={title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         <div className="selected-video-content">
           <h3>{title}</h3>
           <p>{description}</p>
@@ -21,14 +19,15 @@ class VideoItem extends React.Component {
       </div>
     )
   }
-  
+
+
+
   render() {
-    console.log(this.props)
     return (
-      <div className="selected-video-ctn">
-        {this.renderVideoItem()}
-      </div>
-    )
+        <div>
+          {this.renderVideoItem()}
+        </div>
+      )
   }
 }
 

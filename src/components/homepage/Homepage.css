@@ -97,11 +97,12 @@ body {
   .hp-title-container {
     text-align: left;
     border-right: none;
-    letter-spacing: 1.5em;
+    letter-spacing: 1em;
+    padding: 0.5em;
   }
 
   .hp-title {
-    font-size: 75px;
+    text-overflow: ellipsis;
   }
 
   .hp-text-box {
