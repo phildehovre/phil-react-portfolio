@@ -12,8 +12,8 @@ class SongList extends React.Component {
   }
   
   componentDidMount() {
-    const KEY = '93f2be180a4be75f06c1a7d2829e8bbc'
-    axios.get(`https://api.getsongbpm.com/tempo/?api_key=${KEY}&bpm=${this.props.bpm}`, {
+    const KEY = env.BPM_API_KEY
+        axios.get(`https://api.getsongbpm.com/tempo/?api_key=${KEY}&bpm=${this.props.bpm}`, {
     })
     .then(res => {
       const sampledSongs = res.data.tempo.slice(0, this.state.listSize)
