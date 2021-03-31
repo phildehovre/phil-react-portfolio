@@ -19,7 +19,8 @@ export const whatDoIDo = () => {
 export const whatDoIWantToDo = () => {
   return (
     <p>
-      At this moment in time, I am trying my hand at different technologies of the full-stack. <br />I love designing UI and creating smooth and satisfying UX. I am just starting a Node.js course on Udemy and will incorporate it in this portfolio in due time.
+      At this moment in time, I am trying my hand at different technologies of the full-stack. <br />I love designing UI and creating smooth and satisfying UX. I am just starting a Node.js course on Udemy and will incorporate it in this portfolio in due time. <br />
+      This section is still under construction as I am working on the back-end. Thank you for your understanding! In the meantime, you can contact me through my e-mail address, on the top right corner, or by following any of the links at the bottom of this page.
     </p>
   )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { whatDoIWantToDo, whoAmI, whatDoIDo } from './content'
+import Contacts from './Contacts'
 import './Homepage.css'
 
 const Homepage = () => {
@@ -11,13 +12,16 @@ const Homepage = () => {
     <div className="hp-global-container">
       <header className="hp-title-container">
         <h1 to="/" className="hp-title" >PHIL DE HOVRE</h1>
+        <div className="hp-header-contact">
+          <p>ph_dehovre@gmail.com</p>
+          <p>+44 (0)7907318221</p>
+        </div>
       </header>
     <div className="hp-text-container">
       <div className="hp-text-box one">
         <h2>Who am I?<hr /></h2> 
         {whoAmI()}
-        <Link className="hp-link-btn" to='/media' >In the past</Link>
-        {/* <a className="hp-link-btn" href="https://www.youtube.com/user/de0vr" rel="noreferrer" target="_blank" >In the past</a> */}
+        <Link className="hp-link-btn" to='/media' >Previously</Link>
       </div>
       <div className="hp-text-box two">
         <h2>What do I do?<hr /></h2>
@@ -30,20 +34,7 @@ const Homepage = () => {
         <Link className="hp-link-btn" to='/contact' >Contact me</Link>
       </div>
     </div>
-    <div className="hp-contact-container">
-        <a target="_blank" rel="noreferrer" href="mailto:ph.dehovre@gmail.com" className="hp-contact-link">
-          <i className="icon envelope square huge" ></i>
-        </a>
-        <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/phil-de-hovre-7913991b3/" className="hp-contact-link">
-          <i className="icon linkedin huge" ></i>
-        </a>
-        <a target="_blank" rel="noreferrer" href="https://github.com/phildehovre" className="hp-contact-link">
-          <i className="icon github huge" ></i>
-        </a>
-        <a target="_blank" rel="noreferrer" href="https://www.youtube.com/user/de0vr" className="hp-contact-link">
-          <i className="icon youtube huge" ></i>
-        </a>
-        </div>
+        <Contacts />
     </div>
   )
 }

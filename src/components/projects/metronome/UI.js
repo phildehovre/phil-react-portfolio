@@ -129,11 +129,6 @@ return (
               Tap
             </button>
               <label value="sound selection"></label>
-              {/* <CustomDropdown className="metro-custom-dd"
-                handleSoundSelect={setSoundEffect}
-                soundEffect={soundEffect}
-                onDismiss={onDismiss}
-              /> */}
               <div className="metro-custom-dd" onClick={e => e.stopPropagation()}>
                 {renderDropdown()}
               </div>

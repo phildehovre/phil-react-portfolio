@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import useSound from 'use-sound';
+import axios from 'axios'
+// import _ from 'lodash'
 
 import UserInterface from './UI';
-// import './UIRefactor.css';
 import './UI.css'
 import Sidestick from './ressources/Click.wav';
 import Cowbell from './ressources/Cowbell.mp3';
 import Woodblock from './ressources/Woodblock.mp3';
-// import SongList from './components/SongList';
+import SongList from './SongList';
 
 
-// const KEY = '93f2be180a4be75f06c1a7d2829e8bbc'
+const KEY = '93f2be180a4be75f06c1a7d2829e8bbc'
 
 const Metronome = () => {
 
@@ -20,8 +21,8 @@ const Metronome = () => {
     const [tapped, setTapped] = useState()
     const [light, setLight] = useState(undefined)
     const [soundEffect, setSoundEffect] = useState('sidestick')
-    // const [debouncedBpm, setDebouncedBpm] = useState(bpm)
-    // const [songs, setSongs] = useState([])
+    const [debouncedBpm, setDebouncedBpm] = useState(bpm)
+    const [songs, setSongs] = useState([])
 
     const [cowbell] = useSound(Cowbell)
     const [woodblock] = useSound(Woodblock)
@@ -109,29 +110,21 @@ const Metronome = () => {
         } else if (bpm >= 220) {
           setBpm(220)
         }
-        // const intervalId = setTimeout(() => {
-        //     setDebouncedBpm(bpm)
-        //     }, 1000);
-        // return (() => {
-        //     (clearTimeout(intervalId))
-        // })
+        const intervalId = setTimeout(() => {
+            setDebouncedBpm(bpm)
+            }, 1000);
+        return (() => {
+            (clearTimeout(intervalId))
+        })
     }, [bpm])
         
 
     // useEffect(() => {
     //   (async () => {
-    //     const res = await axios.get(`https://api.getsongbpm.com/tempo/?api_key=${KEY}`, {
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //         Authorization: `Bearer ${KEY}`,
-    //         'Access-Control-Allow-Origin': '*'
-    //       },
-    //       params: {
-    //       bpm: debouncedBpm
-    //     }})
-    //     setSongs(res.data)
+    //     const res = await axios.get(`https://api.getsongbpm.com/tempo/?api_key=${KEY}&bpm=${debouncedBpm}`, {
+    //     })
     //     .catch(err => console.log(err))
-    //     console.log(res.data)
+    //     setSongs(res.data.tempo)
     //   })()
     // }, [debouncedBpm])
 
@@ -148,6 +141,7 @@ const Metronome = () => {
                 setSoundEffect={setSoundEffect}
                 soundEffect={soundEffect}
                 />
+              <SongList songs={songs} bpm={debouncedBpm}/>
         </div> 
         </>
     )

@@ -4,7 +4,7 @@
   --clr-cta-dark: rgb(185, 92, 4);
   --btn-dark: rgb(201, 142, 119);
   --btn-active: #ff9d92;
-  --btn-shadow: #242424;
+  --btn-shadow: #202020;
   --metro-shadow-val: 3px 3px 1px var(--btn-shadow);
   --box-shadow-inset: inset 3px 3px 1px var(--btn-shadow);
 }
@@ -45,7 +45,7 @@ body {
 .metro-link-btn:hover {
   background-color: var(--clr-cta);
   color: black;
-  box-shadow: var(--metro-shadow-val);
+  box-shadow: var(--btn-shadow);
   border: none;
 }
 
@@ -134,7 +134,7 @@ body {
 .metro-btn:active {
   outline: none;
   background-color: var(--clr-cta-dark);
-  box-shadow: 0px 0px 3px rgb(175, 123, 101);
+  box-shadow: 0px 0px 3px rgb(0, 0, 0);
 }
 
 .metro-btn.tap {
@@ -249,6 +249,19 @@ body {
 }
 .custom-arrow:hover::before {
   border-bottom: var(--size) solid var(--clr-cta-light);
+}
+
+.song-list-ctn {
+  display: inline-block;
+}
+
+.song-ctn {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  border: 0.5px solid grey;
+  margin: 0.5em;
 }
 
 @media (min-width: 900px) {
