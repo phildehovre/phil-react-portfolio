@@ -12,7 +12,7 @@ class SongList extends React.Component {
   }
   
   componentDidMount() {
-    const KEY = BPM_API_KEY
+    const KEY = '@bpm_api_key'
         axios.get(`https://api.getsongbpm.com/tempo/?api_key=${KEY}&bpm=${this.props.bpm}`, {
     })
     .then(res => {
