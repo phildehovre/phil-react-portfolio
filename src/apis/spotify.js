@@ -5,8 +5,8 @@ import qs from 'qs'
 
 export const getAuth = async () => {
   // const CLIENT = '1b6e57ce73a04adba0cb72a6173d6604'
-  const CLIENT = env.SPOT_API_CLIENT
-  const SCRT = env.SPOT_API_SECRET
+  const CLIENT = SPOT_API_CLIENT
+  const SCRT = SPOT_API_SECRET
   // const SCRT = 'f8f36d78b3e74452ae07f9d24256269f'
   
   const headers = {
