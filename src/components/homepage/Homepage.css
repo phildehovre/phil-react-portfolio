@@ -92,6 +92,21 @@ body {
   transform: scale(1.1);
 }
 
+.metro-form-ctn {
+  width: 50%;
+}
+
+.metro-form-ctn form {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+.metro-form-ctn form input {
+  padding: 0.5em;
+}
+
 @media (min-width: 900px) {
   .hp-text-container {
     display: grid;

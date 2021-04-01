@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import useSound from 'use-sound';
-import axios from 'axios'
+// import axios from 'axios'
 // import _ from 'lodash'
 
 import UserInterface from './UI';
@@ -11,7 +11,7 @@ import Woodblock from './ressources/Woodblock.mp3';
 import SongList from './SongList';
 
 
-const KEY = '93f2be180a4be75f06c1a7d2829e8bbc'
+// const KEY = '93f2be180a4be75f06c1a7d2829e8bbc'
 
 const Metronome = () => {
 
@@ -22,7 +22,7 @@ const Metronome = () => {
     const [light, setLight] = useState(undefined)
     const [soundEffect, setSoundEffect] = useState('sidestick')
     const [debouncedBpm, setDebouncedBpm] = useState(bpm)
-    const [songs, setSongs] = useState([])
+    // const [songs, setSongs] = useState([])
 
     const [cowbell] = useSound(Cowbell)
     const [woodblock] = useSound(Woodblock)
@@ -141,7 +141,7 @@ const Metronome = () => {
                 setSoundEffect={setSoundEffect}
                 soundEffect={soundEffect}
                 />
-              <SongList songs={songs} bpm={debouncedBpm}/>
+              <SongList bpm={debouncedBpm}/>
         </div> 
         </>
     )
