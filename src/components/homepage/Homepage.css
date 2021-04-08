@@ -4,7 +4,7 @@
   --btn-primary: salmon;
   --btn-dark: rgb(201, 142, 119);
   --btn-active: #ff9d92;
-  --btn-shadow: #8a8a8a;
+  --btn-shadow: #000000;
   --box-shadow-val: 1em 1em 1px var(--btn-shadow);
   --box-shadow-inset: inset 3px 3px 1px var(--btn-shadow);
 }
@@ -29,7 +29,7 @@ body {
   height: fit-content;
   text-align: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   border-left: 10px solid var(--clr-cta);
@@ -37,6 +37,7 @@ body {
   margin-bottom: 2em;
   background-color: rgb(75, 75, 75);
   padding: 0 0 1.5em 0;
+  box-shadow: 15px 15px 0px black;
 }
 
 .hp-title {
@@ -120,6 +121,8 @@ body {
     border-right: none;
     letter-spacing: 1em;
     padding: 0.5em;
+    flex-direction: row;
+    box-shadow: none;
   }
 
   .hp-title {

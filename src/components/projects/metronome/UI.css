@@ -4,7 +4,7 @@
   --clr-cta-dark: rgb(185, 92, 4);
   --btn-dark: rgb(201, 142, 119);
   --btn-active: #ff9d92;
-  --btn-shadow: #202020;
+  --btn-shadow: #000000;
   --metro-shadow-val: 3px 3px 1px var(--btn-shadow);
   --box-shadow-inset: inset 3px 3px 1px var(--btn-shadow);
 }
@@ -143,6 +143,12 @@ body {
   align-self: center;
 }
 
+.metro-btn.generate {
+  grid-row-start: 6;
+  grid-column-start: span 3;
+  justify-self: center;
+}
+
 .metro-custom-dd {
   grid-column-start: span 3;
 }
@@ -251,39 +257,87 @@ body {
   border-bottom: var(--size) solid var(--clr-cta-light);
 }
 
-.song-list-ctn {
-  display: inline-block;
+.metro-songlist-ctn {
+  position: relative;
+}
+.metro-songlist-ctn table {
+  border-collapse: collapse;
+  border-radius: 16px;
+  padding: 1.5em;
+}
+.metro-songlist-ctn table thead {
+  color: var(--clr-cta);
+  border: 1px solid var(--clr-cta);
+}
+.metro-songlist-ctn table thead tr th {
+  padding: 0.5em;
 }
 
-.song-ctn {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: space-between;
-  border: 0.5px solid grey;
-  margin: 0.5em;
+.metro-songlist-ctn table tbody tr {
+  border-radius: 16px;
+  transition: 150ms background-color;
+  padding: 1em 1em;
+}
+
+.metro-songlist-ctn table tbody tr td {
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+.metro-songlist-ctn table tbody tr:hover {
+  background-color: grey;
+  margin: 10px;
+}
+
+.metro-songlist-btn {
+  height: 1.5em;
+  width: 1.5em;
+  border: 0.5px solid white;
+  border-radius: 26px;
+  margin: none;
+  position: absolute;
+  left: 1%;
+  transform: translateY(25%);
+}
+
+.metro-songlist-ctn i {
+  position: absolute;
+  left: 1.6%;
+  transform: translateY(100%);
 }
 
 @media (min-width: 900px) {
-  .global-ctn {
+  /* .global-ctn {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     height: 100vh;
     padding: 3em;
+  } */
+  .global-ctn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 3em;
+    width: 100%;
   }
 
   .metro-box-container {
-    max-width: 40%;
+    max-width: 100%;
     min-width: 45%;
     padding: 0em 3em;
   }
 
   .metro-text-box {
-    max-width: 400px;
+    max-width: 100%;
     min-width: 400px;
+    justify-self: center;
   }
   .metro-text-box p {
     border-radius: 50%;
+  }
+  .metro-songlist-ctn {
+    grid-column-start: span 3;
+    justify-self: center;
   }
 }

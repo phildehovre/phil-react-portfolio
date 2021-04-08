@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-// import CustomDropdown from './CustomDropdown'
+
+import SongList from './SongList'
+import { fetchSongs } from '../../../actions'
 import './slider.css'
 
-export default function Tempo({ 
+const Tempo = ({ 
   bpm, 
   setBpm, 
   startClick, 
@@ -13,12 +16,17 @@ export default function Tempo({
   isPlaying, 
   soundEffect, 
   setSoundEffect,
-}) {
-  
+  songList,
+  fetchSongs,
+  debouncedBpm
+}) => {
+
   const [showDropdown, setShowDropdown] = useState(false)
   const [isDropdownClosing, setIsDropdownClosing] = useState(false)
+  const [showSongList, setShowSongList] = useState(false)
 
-  const onDismiss = () => {
+
+  const onDropdownDismiss = () => {
     setIsDropdownClosing(true)
     setTimeout(() => {
       setShowDropdown(false)
@@ -101,9 +109,13 @@ const renderDropdown = () => {
   )
 };
 
+const handleFetchSongs = (bpm) => {
+  fetchSongs(bpm)
+  setShowSongList(!showSongList)
+}
 return (
 
-  <div className="global-ctn" onClick={() => onDismiss()}>
+  <div className="global-ctn" onClick={() => onDropdownDismiss()}>
     <div className="metro-box-container">
       <div className="metro-box">
         <div className="metro-title" onClick={startClick}>
@@ -132,6 +144,7 @@ return (
               <div className="metro-custom-dd" onClick={e => e.stopPropagation()}>
                 {renderDropdown()}
               </div>
+              <button className="metro-btn generate" onClick={() => handleFetchSongs(debouncedBpm)}>Generate</button>
       </div><br />
   </div>
       <div className="metro-text-box">
@@ -148,6 +161,14 @@ return (
         <Link className="metro-link-btn" to="/"> Back to the homepage</Link>
       </div>
       </div>
+      <SongList 
+        bpm={bpm} 
+        showSongList={showSongList}
+        />
   </div>
  )
 }
+
+
+
+export default connect(null, { fetchSongs })(Tempo)

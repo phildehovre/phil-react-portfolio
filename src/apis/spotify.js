@@ -1,11 +1,15 @@
 import axios from 'axios'
 import qs from 'qs'
+import {SPOT_API_CLIENT} from '../secrets'
+import {SPOT_API_SECRET} from '../secrets'
 
 
 
 export const getAuth = async () => {
-  const CLIENT = '@spot_api_client'
-  const SCRT = '@spot_api_secret'
+  // const CLIENT = '@spot_api_client'
+  // const SCRT = '@spot_api_secret'
+  const CLIENT = SPOT_API_CLIENT
+  const SCRT = SPOT_API_SECRET
   
   const headers = {
     headers: {
