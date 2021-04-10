@@ -1,35 +1,21 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-
-// import Metronome from './metronome/Metronome'
-import ProjectsHeader from './ProjectsHeader'
-import useSound from 'use-sound';
+import { Link } from 'react-router-dom'
 
 
-import Sidestick from './ressources/Click.wav';
-import Cowbell from './ressources/Cowbell.mp3';
-import Woodblock from './ressources/Woodblock.mp3';
 
 const Projects = () => {
 
-  [cowbell] = useSound(Cowbell)
-[woodblock] = useSound(Woodblock)
-[sidestick] = useSound(Sidestick)
+
 
   return (
-    <div>
-      <div className="ui grid">
-      <Router>
-        <div className="four wide column">
-          <ProjectsHeader />
-        </div>
-        <div className="twelve wide stretched column">
-          <div className="ui container">
-            <Route path="/projects/metronome" component={Metronome}/>
-          </div>
-        </div>
-      </Router>
+    <div className="projects-navbar-ctn">
+      <h1>Projects: </h1>
+      <div className="projects-navbar">
+        <Link className="projects-navbar-link" to="/projects/metronome">Metronome</Link>
+        <Link className="projects-navbar-link" to="/projects/tastify">Tastify</Link>
+        <Link className="projects-navbar-link" to="/">Home</Link>
       </div>
+
     </div>
   )
 }
