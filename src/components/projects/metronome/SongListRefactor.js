@@ -35,7 +35,7 @@ class SongListRefactor extends React.Component {
       return (
         <div className="metro-songlist-loader"></div>
       )}
-      if (this.props.songList.length > 1) {
+      if (this.props.songList && this.props.showSongList) {
       return (      
       
         <table>
@@ -58,6 +58,7 @@ class SongListRefactor extends React.Component {
   }
 
   render() {
+    console.log(this.props.songList)
     return (
       <div className="metro-songlist-ctn">
         {this.renderSongList()}

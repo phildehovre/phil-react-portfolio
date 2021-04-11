@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
 import SongListRefactor from './SongListRefactor'
-import { fetchSongs } from '../../../actions'
+import { fetchSongs, clearSongs } from '../../../actions'
 import './slider.css'
 
 const Tempo = ({ 
@@ -18,13 +18,13 @@ const Tempo = ({
   setSoundEffect,
   songs,
   fetchSongs,
+  clearSongs,
   debouncedBpm
 }) => {
 
   const [showDropdown, setShowDropdown] = useState(false)
   const [isDropdownClosing, setIsDropdownClosing] = useState(false)
   const [showSongList, setShowSongList] = useState(false)
-  const [fetchButton, setFetchButton] = useState("Generate songs")
 
 
   const onDropdownDismiss = () => {
@@ -111,13 +111,10 @@ const renderDropdown = () => {
 };
 
 const handleFetchSongs = (bpm) => {
+  setShowSongList(false)
+  clearSongs()
   fetchSongs(bpm)
   setShowSongList(true)
-  
-  if (songs.length < 1) {
-    setFetchButton("Loading")
-  }
-  setFetchButton("Generate songs")
 }
 
 
@@ -152,7 +149,7 @@ return (
               <div className="metro-custom-dd" onClick={e => e.stopPropagation()}>
                 {renderDropdown()}
               </div>
-              <button className="metro-btn generate" onClick={() => handleFetchSongs(debouncedBpm)}>{fetchButton}</button>
+              <button className="metro-btn generate" onClick={() => handleFetchSongs(debouncedBpm)}>Generate songs</button>
       </div><br />
   </div>
       <div className="metro-text-box">
@@ -165,9 +162,9 @@ return (
         At the bottom, a dropdown menu allows for the user to choose different sound effects. I have extensive knowledge of Logic Pro X which allowed me to create these samples myself.
         </p>
         {/* <br /> */}
-      <div className="metro-link-btn-ctn">
+      {/* <div className="metro-link-btn-ctn">
         <Link className="metro-link-btn" to="/"> Back to the homepage</Link>
-      </div>
+      </div> */}
       </div>
       <SongListRefactor 
         bpm={bpm} 
@@ -184,4 +181,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchSongs })(Tempo)
+export default connect(mapStateToProps, { fetchSongs, clearSongs })(Tempo)

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import { youtube } from '../apis'
-import { FETCH_VIDEOS } from './types'
+import { CLEAR_SONGS, FETCH_VIDEOS } from './types'
 import { FETCH_SONGS } from './types'
 import { BPM_API_KEY } from '../secrets'
 
@@ -28,4 +28,12 @@ export const fetchSongs = (bpm) => async dispatch => {
    type: FETCH_SONGS,
    payload: res.data.tempo
  })
+}
+
+export const clearSongs = () => {
+  console.log('called')
+  return {
+    type: CLEAR_SONGS,
+    payload: []
+  }
 }
