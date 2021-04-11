@@ -11,21 +11,27 @@ class SongList extends React.Component {
 
    
   renderSongList = () => {
+    if (this.props.songList.length < 1) {
+      return (<div className="metro-songlist-loader"></div>)
+    } 
     if (this.props.songList !== null) {
       const songs = this.props.songList.slice(0, this.state.listSize)
       console.log(songs.slice(0, 26))
       return songs.map(song => {
         return (
+          <>
           <tr key={song.song_id}>
-          <div className="metro-songlist-btn">
-          </div>
+          <td>
+            <div className="metro-songlist-btn"></div>
             <i className="play icon small" />
+          </td>
             <td>{song.song_title}</td>
             <td>{song.artist.name}</td>
             <td>{song.album.title}</td>
             <td>{song.album.year}</td>
             <td>{song.artist.genres[0]+`, `+song.artist.genres[1]}</td>
           </tr>
+          </>
         )
       })
     }
@@ -54,7 +60,6 @@ class SongList extends React.Component {
         }
       </div>
     )
-
   }
 }
 

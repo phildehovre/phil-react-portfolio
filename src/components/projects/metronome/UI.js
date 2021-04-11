@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
-import SongList from './SongList'
+import SongListRefactor from './SongListRefactor'
 import { fetchSongs } from '../../../actions'
 import './slider.css'
 
@@ -16,7 +16,7 @@ const Tempo = ({
   isPlaying, 
   soundEffect, 
   setSoundEffect,
-  songList,
+  songs,
   fetchSongs,
   debouncedBpm
 }) => {
@@ -24,6 +24,7 @@ const Tempo = ({
   const [showDropdown, setShowDropdown] = useState(false)
   const [isDropdownClosing, setIsDropdownClosing] = useState(false)
   const [showSongList, setShowSongList] = useState(false)
+  const [fetchButton, setFetchButton] = useState("Generate songs")
 
 
   const onDropdownDismiss = () => {
@@ -111,10 +112,17 @@ const renderDropdown = () => {
 
 const handleFetchSongs = (bpm) => {
   fetchSongs(bpm)
-  setShowSongList(!showSongList)
+  setShowSongList(true)
+  
+  if (songs.length < 1) {
+    setFetchButton("Loading")
+  }
+  setFetchButton("Generate songs")
 }
-return (
 
+
+
+return (
   <div className="global-ctn" onClick={() => onDropdownDismiss()}>
     <div className="metro-box-container">
       <div className="metro-box">
@@ -144,7 +152,7 @@ return (
               <div className="metro-custom-dd" onClick={e => e.stopPropagation()}>
                 {renderDropdown()}
               </div>
-              <button className="metro-btn generate" onClick={() => handleFetchSongs(debouncedBpm)}>Generate</button>
+              <button className="metro-btn generate" onClick={() => handleFetchSongs(debouncedBpm)}>{fetchButton}</button>
       </div><br />
   </div>
       <div className="metro-text-box">
@@ -161,7 +169,7 @@ return (
         <Link className="metro-link-btn" to="/"> Back to the homepage</Link>
       </div>
       </div>
-      <SongList 
+      <SongListRefactor 
         bpm={bpm} 
         showSongList={showSongList}
         />
@@ -170,5 +178,10 @@ return (
 }
 
 
+const mapStateToProps = state => {
+  return {
+    songs: state.songs
+  }
+}
 
-export default connect(null, { fetchSongs })(Tempo)
+export default connect(mapStateToProps, { fetchSongs })(Tempo)
