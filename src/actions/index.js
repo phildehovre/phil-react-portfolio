@@ -20,10 +20,9 @@ export const fetchVideos = () => async dispatch => {
 }
 
 export const fetchSongs = (bpm) => async dispatch => {
-  // console.log('Triggered!')
+  console.log('fetching')
   const KEY = BPM_API_KEY
   const res = await axios.get(`https://api.getsongbpm.com/tempo/?api_key=${KEY}&bpm=${bpm}`)
-  
  dispatch({
    type: FETCH_SONGS,
    payload: res.data.tempo
@@ -31,7 +30,6 @@ export const fetchSongs = (bpm) => async dispatch => {
 }
 
 export const clearSongs = () => {
-  console.log('called')
   return {
     type: CLEAR_SONGS,
     payload: []

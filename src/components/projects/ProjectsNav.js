@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const Projects = () => {
+const ProjectsNav = () => {
 
 
 
@@ -19,4 +19,4 @@ const Projects = () => {
   )
 }
 
-export default Projects
+export default ProjectsNav

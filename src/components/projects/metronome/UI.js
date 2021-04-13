@@ -25,6 +25,7 @@ const Tempo = ({
   const [showDropdown, setShowDropdown] = useState(false)
   const [isDropdownClosing, setIsDropdownClosing] = useState(false)
   const [showSongList, setShowSongList] = useState(false)
+  const [listSize, setListSize] = useState(25)
 
 
   const onDropdownDismiss = () => {
@@ -90,7 +91,6 @@ const handleDropdownRetract = () => {
   }
 };
 
-const handleTouch = () => showDropdown? setShowDropdown(true): setShowDropdown(false)
 
 
 const renderDropdown = () => {
@@ -98,7 +98,6 @@ const renderDropdown = () => {
     <div 
       className={`dd-container ${showDropdown? `active`: ``}`} 
       onClick={() => handleDropdownRetract()}
-      onTouchEnd={() => handleTouch()}
       >
       <div className="dd-header">{`${soundEffect[0].toUpperCase()}${soundEffect.slice(1)}`}
         <span className="custom-arrow"></span>
@@ -117,7 +116,18 @@ const handleFetchSongs = (bpm) => {
   setShowSongList(true)
 }
 
-
+const handleSetListSize = (e) => {
+  const size = e.target.value
+  const min = 1
+  const max = 150
+  if (size < min) {
+    setListSize(min)
+  } else if (size > max) {
+    setListSize(max)
+  } else {
+    setListSize(size)
+  }
+}
 
 return (
   <div className="global-ctn" onClick={() => onDropdownDismiss()}>
@@ -149,7 +159,10 @@ return (
               <div className="metro-custom-dd" onClick={e => e.stopPropagation()}>
                 {renderDropdown()}
               </div>
-              <button className="metro-btn generate" onClick={() => handleFetchSongs(debouncedBpm)}>Generate songs</button>
+              <div className="metro-generate-ctn">
+                <button className="metro-btn generate" onClick={() => handleFetchSongs(debouncedBpm)}>Generate songs</button>
+                <input className="listsize-input" type="number" min="1" max="150" value={listSize} onChange={e => handleSetListSize(e)}/>
+              </div>
       </div><br />
   </div>
       <div className="metro-text-box">
@@ -169,6 +182,7 @@ return (
       <SongListRefactor 
         bpm={bpm} 
         showSongList={showSongList}
+        listSize={listSize}
         />
   </div>
  )

@@ -107,7 +107,7 @@ const Metronome = () => {
         }
         const intervalId = setTimeout(() => {
             setDebouncedBpm(bpm)
-            }, 1000);
+            }, 250);
         return (() => {
             (clearTimeout(intervalId))
         })

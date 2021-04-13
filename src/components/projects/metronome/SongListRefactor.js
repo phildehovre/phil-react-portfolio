@@ -5,13 +5,13 @@ import { connect } from 'react-redux'
 
 class SongListRefactor extends React.Component {
   state = {
-    listSize: 25,
     displayTableHeaders: false
   }
 
   
   renderTable = () => {
-    const songs = this.props.songList.slice(0, this.state.listSize)
+    const songs = this.props.songList.slice(0, this.props.listSize)
+    console.log(songs)
     return songs.map((song, i) => {
       i = i +1
       return (
@@ -37,7 +37,6 @@ class SongListRefactor extends React.Component {
       )}
       if (this.props.songList && this.props.showSongList) {
       return (      
-      
         <table>
           <thead>
             <tr>

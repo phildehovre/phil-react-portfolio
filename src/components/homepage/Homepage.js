@@ -26,7 +26,7 @@ const Homepage = () => {
       <div className="hp-text-box two">
         <h2>What do I do?<hr /></h2>
         {whatDoIDo()}
-        <Link className="hp-link-btn" to='/projects/metronome2' >Projects</Link>
+        <Link className="hp-link-btn" to='/projects/metronome' >Projects</Link>
       </div>
       <div className="hp-text-box three">
         <h2>What do I want to do?<hr /></h2>

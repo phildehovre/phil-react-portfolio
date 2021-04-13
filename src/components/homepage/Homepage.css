@@ -142,16 +142,20 @@ body {
 }
 
 .projects-navbar-link:hover {
-  /* background-color: var(--clr-cta); */
   color: white;
 }
 .projects-navbar-link:active {
   color: var(--clr-cta);
 }
 
-.projects-bottom-bar {
-  border: 1px solid red;
-  width: 100%;
+.projects-grid-ctn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.projects-text-box {
+  padding: 1.5em;
+  text-justify: distribute;
 }
 
 .metro-form-ctn {
