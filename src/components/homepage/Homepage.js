@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom'
 
 import { whatDoIWantToDo, whoAmI, whatDoIDo } from './content'
 import Contacts from './Contacts'
+import GoogleAuth from '../projects/GoogleAuth'
 import './Homepage.css'
 
 const Homepage = () => {
-
-
+  
+  
   return (
     <div className="hp-global-container">
       <header className="hp-title-container">
@@ -15,6 +16,7 @@ const Homepage = () => {
         <div className="hp-header-contact">
           <p>ph_dehovre@gmail.com</p>
           <p>+44 (0)7907318221</p>
+          <GoogleAuth />
         </div>
       </header>
     <div className="hp-text-container">
