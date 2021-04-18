@@ -28,14 +28,15 @@ body {
 
 .hp-title-container {
   width: 100%;
-  height: fit-content;
+  min-height: 20%;
   text-align: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   border-left: 10px solid var(--clr-cta);
   border-right: 10px solid var(--clr-cta);
+  margin-top: 0.5em;
   margin-bottom: 2em;
   background-color: rgb(75, 75, 75);
   padding: 0 0 1.5em 0;
@@ -43,6 +44,7 @@ body {
 }
 
 .hp-title {
+  text-align: center;
   font-size: 50px;
   color: rgb(175, 175, 175);
 }
